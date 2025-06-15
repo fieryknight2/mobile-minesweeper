@@ -1,0 +1,143 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6gjf0812r8vb"]
+
+[ext_resource type="Script" uid="uid://cgu718u7shikw" path="res://scripts/new_game.gd" id="1_v0bqk"]
+
+[node name="Control" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_v0bqk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Presets"
+horizontal_alignment = 1
+
+[node name="Presets" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="VBoxContainer/Presets"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Easy" type="Button" parent="VBoxContainer/Presets"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Easy"
+
+[node name="Medium" type="Button" parent="VBoxContainer/Presets"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Medium"
+
+[node name="Hard" type="Button" parent="VBoxContainer/Presets"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard"
+
+[node name="Control" type="Control" parent="VBoxContainer/Presets"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MineCount" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label2" type="Label" parent="VBoxContainer/MineCount"]
+layout_mode = 2
+text = "Mine Count"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MineCount"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 170.0
+value = 1.0
+rounded = true
+
+[node name="Label3" type="Label" parent="VBoxContainer/MineCount"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "5"
+vertical_alignment = 1
+
+[node name="Width" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label2" type="Label" parent="VBoxContainer/Width"]
+layout_mode = 2
+text = "World Width"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Width"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 9.0
+max_value = 30.0
+value = 9.0
+rounded = true
+
+[node name="Label4" type="Label" parent="VBoxContainer/Width"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "5"
+vertical_alignment = 1
+
+[node name="Height" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label2" type="Label" parent="VBoxContainer/Height"]
+layout_mode = 2
+text = "World Height"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Height"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 9.0
+max_value = 16.0
+value = 9.0
+
+[node name="Label5" type="Label" parent="VBoxContainer/Height"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "5"
+vertical_alignment = 1
+
+[node name="Warning" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Too many mines for that world size!"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="VBoxContainer/Presets/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Presets/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="VBoxContainer/Presets/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

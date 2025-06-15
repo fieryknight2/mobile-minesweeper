@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu8msb7vu5rxq"]
+
+[ext_resource type="Script" uid="uid://c4lu63kwbfe8p" path="res://scripts/minesweeper.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bcwtcpwy2cvui" path="res://tile.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b6gjf0812r8vb" path="res://new_game.tscn" id="3_h2yge"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+tile_scene = ExtResource("2_0xm2m")
+new_game_scene = ExtResource("3_h2yge")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1129.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="UIInformation" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MineCount" type="Label" parent="MarginContainer/VBoxContainer/UIInformation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remaining Mines:"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/UIInformation"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeTaken" type="Label" parent="MarginContainer/VBoxContainer/UIInformation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Time Taken:"
+
+[node name="PlayWorld" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_button_pressed"]

@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cjgk2ojilbgl2"]
+
+[ext_resource type="StyleBox" uid="uid://dfgtgjc86nt78" path="res://theme/normal.tres" id="1_hillf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hillf"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nt82c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rgb0"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08jry"]
+bg_color = Color(0.136826, 0.136826, 0.136826, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_hillf")
+Button/styles/focus = SubResource("StyleBoxEmpty_nt82c")
+Button/styles/hover = SubResource("StyleBoxFlat_6rgb0")
+Button/styles/normal = ExtResource("1_hillf")
+Button/styles/pressed = SubResource("StyleBoxFlat_08jry")
+ClickedButton/base_type = &"Button"
+ClickedButton/styles/normal = ExtResource("1_hillf")
